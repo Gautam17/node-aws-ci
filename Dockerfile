@@ -1,7 +1,7 @@
 FROM node:alpine3.11
 MAINTAINER Gautam Vanani
 
-RUN apk -v --update -q  add python3 py3-pip py-pip zip
+RUN apk -v --update -q  add python3 py3-pip py-pip zip bash curl
 RUN pip3 install --upgrade awscli==1.18.128 -q
 RUN rm -rf /tmp/* && rm -rf /var/cache/apk/*
  

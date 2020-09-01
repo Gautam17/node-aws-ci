@@ -1,4 +1,4 @@
-FROM node:alpine3.11
+FROM node:12.18.3-alpine3.12
 MAINTAINER Gautam Vanani
 
 RUN apk -v --update -q  add python3 py3-pip py-pip zip bash curl

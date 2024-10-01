@@ -1,15 +1,20 @@
-FROM node:16.17-alpine
-LABEL maintainer="Gautam Vanani"
+FROM node:20-alpine
+LABEL maintainer="Gautam V."
 
-RUN apk --update -q add python3 py3-pip py-pip zip bash curl
-RUN pip3 install --upgrade awscli==1.27.50 -q
-RUN rm -rf /tmp/* && rm -rf /var/cache/apk/*
+# Update and install required dependencies for Python and pip
+RUN apk add --no-cache \
+    aws-cli \
+    bash \
+    groff \
+    less \
+    py3-pip \
+    python3
 
-RUN aws --version \
-        && node -v \
-        && yarn -v \
-        && npm -v \
-        && zip -v
+# Verify installations
+RUN node -v && python3 --version && pip3 --version && aws --version
 
 VOLUME /root/.aws
 VOLUME /project
+
+# # Add a debugging command to drop into a shell
+# CMD ["/bin/bash"]

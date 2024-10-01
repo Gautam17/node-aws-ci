@@ -14,6 +14,11 @@ Now, you can push this image to your hub by executing the `docker push` command.
 
 command: `docker push $DOCKER_ACC/$DOCKER_REPO:$IMG_TAG`
 
+## Debug
+
+docker build -t my-debug-image .
+docker run -it my-debug-image
+
 ## TODO
 
 1. CI-CD
